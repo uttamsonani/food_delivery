@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_09_141455) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_09_133112) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_141455) do
     t.text "description"
     t.binary "photo"
     t.integer "price"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,10 +46,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_141455) do
   create_table "order_foods", force: :cascade do |t|
     t.integer "orders_id", null: false
     t.integer "foods_id", null: false
+    t.float "amount"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "amount"
-    t.integer "quntatiy"
     t.index ["foods_id"], name: "index_order_foods_on_foods_id"
     t.index ["orders_id"], name: "index_order_foods_on_orders_id"
   end
@@ -57,20 +57,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_141455) do
   create_table "orders", force: :cascade do |t|
     t.float "amount"
     t.string "status"
+    t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["users_id"], name: "index_orders_on_users_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer "persons"
     t.datetime "time", precision: nil
     t.string "special_request"
+    t.integer "users_id"
+    t.integer "dining_tables_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["dining_tables_id"], name: "index_reservations_on_dining_tables_id"
+    t.index ["users_id"], name: "index_reservations_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

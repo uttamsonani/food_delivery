@@ -6,9 +6,8 @@ class Food < ApplicationRecord
     has_many :oreders, through: :order_foods
 
     # VALIDATION
-    validates_presence_of :name
-    validates_presence_of :description
-    validates_presence_of :photo
-    validates_presence_of :price, numericality: { only_integer: true }  
-    validates_presence_of :active
+    validates :name, presence: true
+    validates :description, presence: true
+    validates :price, presence: true, numericality: { only_integer: true }  
+    validates :active, presence: true
 end

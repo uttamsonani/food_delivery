@@ -3,5 +3,5 @@ class Category < ApplicationRecord
     has_many :foods, through: :food_categories
 
     # VALIDATION
-    validates_presence_of :name
+    validates :name, presence: true
 end
