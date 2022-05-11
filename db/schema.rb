@@ -86,7 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_133112) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.integer "zip_code"
+    t.integer "zip_code", limit: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
