@@ -12,4 +12,16 @@
  *
  *= require_tree .
  *= require_self
+ *= require animate
+ *= require animsition.min
+ *= require bootstrap.min
+ *= require daterangepicker
+ *= require font-awesome.min
+ *= require hamburgers.min
+ *= require lightbox.min
+ *= require main
+ *= require select2.min
+ *= require slick
+ *= require themify-icons
+ *= require util
  */
