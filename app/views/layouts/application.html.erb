@@ -7,13 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-	<%= javascript_include_tag "application","data-turbo-track": "reload" %>
+	<%= javascript_include_tag "application" %>
+
+
     <%= javascript_importmap_tags %>
+	<%= favicon_link_tag "icons/favicon.png" %>
 
-
-      <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-		<%# <%= image_tag "icons/favicon.png" %> %>
-		<%= favicon_link_tag "icons/favicon.png" %>
   </head>
 
 	<!-- Header -->
@@ -25,9 +24,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
-							<%# <img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png"> %>
 							<%= image_tag "icons/logo.png",  alt: "IMG-LOGO", data_logofixed: "icons/logo2.png" %>
-
 						</a>
 					</div>
 
@@ -132,39 +129,39 @@
 			<!-- Gallery -->
 			<div class="wrap-gallery-sidebar flex-w">
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-01.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-02.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-03.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-05.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-06.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-07.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-09.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY" %>
 				</a>
 
 				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+					<%= image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY" %>
 				</a>
 			</div>
 		</div>
@@ -271,62 +268,62 @@
 					<div class="wrap-gallery-footer flex-w">
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-01.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-02.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-03.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-04.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-05.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-06.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-07.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-08.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-09.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY" %>
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+							<%= image_tag "photo-gallery-thumb-12.jpg", alt: "GALLERY" %>
 						</a>
 					</div>
 
@@ -370,7 +367,10 @@
 			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
 
 			<div class="wrap-video-mo-01">
-				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
+				<div class="w-full wrap-pic-w op-0-0">
+					<img src="images/icons/video-16-9.jpg" alt="IMG">
+					<%= image_tag "icons/video-16-9.jpg", alt: "IMG" %>
+				</div>
 				<div class="video-mo-01">
 					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0"
 						allowfullscreen></iframe>
@@ -384,6 +384,30 @@
 	<script type="text/javascript">
 		$('.parallax100').parallax100();
 	</script>
+
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "jquery-3.2.1.min" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "animsition.min" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "popper" %>
+	<%= javascript_include_tag "bootstrap.min" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "select2.min" %>
+	<!-- =============================================================================================== -->
+	<%= javascript_include_tag "moment.min" %>
+	<%= javascript_include_tag "daterangepicker" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "slick.min" %>
+	<%= javascript_include_tag "slick-custom" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "parallax100" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "countdowntime" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "lightbox.min" %>
+	<!--===============================================================================================-->
+	<%= javascript_include_tag "main" %>
 
   </body>
 </html>
