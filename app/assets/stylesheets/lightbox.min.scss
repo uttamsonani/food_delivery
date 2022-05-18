@@ -4,8 +4,8 @@
   line-height: 0;
 }
 body:after {
-  content: url(asset-path("close.png")) url(asset-path("loading.gif"))
-    url(asset-path("prev.png")) url(asset-path("next.png"));
+  content: url(image-path("close.png")) url(asset-path("loading.gif"))
+    url(image-path("prev.png")) url(asset-path("next.png"));
   display: none;
 }
 .lb-dataContainer:after,
@@ -167,7 +167,7 @@ body.lb-disable-scrolling {
   float: right;
   width: 30px;
   height: 30px;
-  background: url(../images/close.png) top right no-repeat;
+  background: url(asset-path("close.png")) top right no-repeat;
   text-align: right;
   outline: 0;
   filter: alpha(Opacity=70);

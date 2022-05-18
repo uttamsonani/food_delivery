@@ -7,10 +7,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-	<%= javascript_include_tag "application" %>
-
 
     <%= javascript_importmap_tags %>
+	
 	<%= favicon_link_tag "icons/favicon.png" %>
 
   </head>
@@ -128,39 +127,39 @@
 
 			<!-- Gallery -->
 			<div class="wrap-gallery-sidebar flex-w">
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-01.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-01.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-02.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-02.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-03.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-03.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-05.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-05.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-06.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-06.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-07.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-07.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-09.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-09.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-10.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY" %>
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="<%= image_url 'photo-gallery-11.jpg' %>" data-lightbox="gallery-footer">
 					<%= image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY" %>
 				</a>
 			</div>
@@ -368,7 +367,6 @@
 
 			<div class="wrap-video-mo-01">
 				<div class="w-full wrap-pic-w op-0-0">
-					<img src="images/icons/video-16-9.jpg" alt="IMG">
 					<%= image_tag "icons/video-16-9.jpg", alt: "IMG" %>
 				</div>
 				<div class="video-mo-01">
@@ -385,29 +383,7 @@
 		$('.parallax100').parallax100();
 	</script>
 
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "jquery-3.2.1.min" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "animsition.min" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "popper" %>
-	<%= javascript_include_tag "bootstrap.min" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "select2.min" %>
-	<!-- =============================================================================================== -->
-	<%= javascript_include_tag "moment.min" %>
-	<%= javascript_include_tag "daterangepicker" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "slick.min" %>
-	<%= javascript_include_tag "slick-custom" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "parallax100" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "countdowntime" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "lightbox.min" %>
-	<!--===============================================================================================-->
-	<%= javascript_include_tag "main" %>
+	<%= javascript_include_tag "application" %>
 
   </body>
 </html>
