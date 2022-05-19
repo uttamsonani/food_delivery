@@ -11,3 +11,5 @@
 //= require 'countdowntime'
 //= require 'lightbox.min'
 //= require 'main'
+//= require 'isotope.pkgd.min'
+//= require 'map-custom'
