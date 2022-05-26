@@ -25,12 +25,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_133112) do
   end
 
   create_table "food_categories", force: :cascade do |t|
-    t.integer "foods_id", null: false
-    t.integer "categories_id", null: false
+    t.integer "food_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categories_id"], name: "index_food_categories_on_categories_id"
-    t.index ["foods_id"], name: "index_food_categories_on_foods_id"
+    t.index ["category_id"], name: "index_food_categories_on_category_id"
+    t.index ["food_id"], name: "index_food_categories_on_food_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -91,8 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_133112) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "food_categories", "categories", column: "categories_id"
-  add_foreign_key "food_categories", "foods", column: "foods_id"
+  add_foreign_key "food_categories", "categories"
+  add_foreign_key "food_categories", "foods"
   add_foreign_key "order_foods", "foods", column: "foods_id"
   add_foreign_key "order_foods", "orders", column: "orders_id"
 end

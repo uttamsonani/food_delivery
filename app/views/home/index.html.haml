@@ -21,7 +21,7 @@
           .wrap-btn-slide1.animated.visible-false{"data-appear" => "slideInUp"}
             / Button1
             %a.btn1.flex-c-m.size1.txt3.trans-0-4{:href => "menu.html"}
-              Look Menu
+              Look Menu 
       .item-slick1.item3-slick1{:style => "background-image: url(#{image_url 'master-slides-05.jpg'});"}
         .wrap-content-slide1.sizefull.flex-col-c-m.p-l-15.p-r-15.p-t-150.p-b-170
           %span.caption1-slide1.txt1.t-center.animated.visible-false.m-b-15{"data-appear" => "rotateInDownLeft"}
@@ -33,6 +33,14 @@
             %a.btn1.flex-c-m.size1.txt3.trans-0-4{:href => "menu.html"}
               Look Menu
     .wrap-slick1-dots
+%br/
+-# SEARCH BAR
+.container.center
+  = form_with url: "/search", method: :get do |form|
+    = form.text_field :search, placeholder:"Search your favourit food",class:"text-center"
+    = form.submit "Search", class:"btn btn-success"
+%br/
+t
 / Welcome
 %section.section-welcome.bg1-pattern.p-t-120.p-b-105
   .container

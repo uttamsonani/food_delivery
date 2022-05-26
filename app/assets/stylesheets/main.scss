@@ -562,6 +562,20 @@ input[type="date" i] {
   vertical-align: middle;
 }
 
+//SEARCH BAR
+.container.center {
+  position: absolute;
+  top: 77%;
+  left: 42%;
+} 
+input#search {
+  height: 33px;
+  border-radius: 4px;
+  // background: transparent;
+  color: black;
+  font-weight: bolder;
+}
+
 /*[ Menu ]
 -----------------------------------------------------------
 */

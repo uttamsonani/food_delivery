@@ -22,4 +22,8 @@ class HomeController < ApplicationController
 
     def contact
     end
+
+    def search
+        @pagy, @foods = pagy(Food.where("name like description ?", "%#{params[:search]}%", "%#{params[:search]}%"))
+    end
 end

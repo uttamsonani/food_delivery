@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'home/about', as: :about
   get 'home/index', as: :index
   get 'home/reservation', as: :reservation
+
+  get 'search', to: 'home#search'
   
   # Defines the root path route ("/")
   # root "articles#index"
