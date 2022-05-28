@@ -24,6 +24,17 @@ class HomeController < ApplicationController
     end
 
     def search
-        @pagy, @foods = pagy(Food.where("name like description ?", "%#{params[:search]}%", "%#{params[:search]}%"))
+        @pagy, @foods = pagy(Food.includes(:categories).where("foods.name LIKE ?", "%#{params[:search]}%").order(:price))
+
+        # @foods = Food.where( { id: params[:price_id] }).order(:price) if params[:price_id].present?
+
+        if params[:category_id].present?
+            @foods = @foods.where(categories: { id: params[:category_id] })
+        end
+        # if params[:price_id] == "High to Low"
+        #     @foods = @foods.order(:price)
+        # else    
+        #     @foods = @foods.order(price: :desc)
+        # end
     end
 end
