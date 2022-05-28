@@ -576,6 +576,15 @@ input#search {
   font-weight: bolder;
 }
 
+// PAGINATION
+.pagination {
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+  justify-content: center;
+}
 /*[ Menu ]
 -----------------------------------------------------------
 */
