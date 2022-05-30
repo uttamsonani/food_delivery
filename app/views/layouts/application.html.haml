@@ -58,6 +58,9 @@
       / -
       %ul.menu-sidebar.p-t-95.p-b-70
         %li.t-center.m-b-13
+          - if user_signed_in?
+            = current_user.full_name
+        %li.t-center.m-b-13
           %a.txt19{:href => index_path} Home
         %li.t-center.m-b-13
           %a.txt19{:href => menu_path} Menu
@@ -67,8 +70,19 @@
           %a.txt19{:href => about_path} About
         %li.t-center.m-b-13
           %a.txt19{:href => blog_path} Blog
-        %li.t-center.m-b-33
+        %li.t-center.m-b-13
           %a.txt19{:href => contact_path} Contact
+        %li.t-center.m-b-13
+          - if user_signed_in?
+            %li.t-center.m-b-13.color0-hov
+              = link_to "Account Settings", edit_user_registration_path
+            %li.t-center.m-b-13
+              = button_to "Log Out", destroy_user_session_path, method: :delete
+          - else
+            %li.t-center.m-b-13.color0-hov
+              = button_to "Log In", new_user_session_path
+            %li.t-center.m-b-13
+              = link_to "Sign Up", new_user_registration_path
         %li.t-center
           / Button3
           %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => reservation_path}

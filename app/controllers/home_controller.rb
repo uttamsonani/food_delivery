@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+    before_action :authenticate_user!, only: %i[blog_detail, search, menu, reservation]
+    
     def index
     end
 
