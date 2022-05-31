@@ -21,7 +21,7 @@
           .wrap_header.trans-0-3
             / Logo
             .logo
-              %a{:href => "index.html"}
+              %a{:href => "/home/index"}
                 = image_tag "icons/logo.png",  alt: "IMG-LOGO", data_logofixed: "icons/logo2.png"
             / Menu
             .wrap_menu.p-l-45.p-l-0-xl
@@ -75,14 +75,14 @@
         %li.t-center.m-b-13
           - if user_signed_in?
             %li.t-center.m-b-13.color0-hov
-              = link_to "Account Settings", edit_user_registration_path
+              = link_to "Account Settings", edit_user_registration_path, class: "txt19"
             %li.t-center.m-b-13
-              = button_to "Log Out", destroy_user_session_path, method: :delete
+              = button_to "Log Out", destroy_user_session_path, method: :delete, class: "txt19"
           - else
             %li.t-center.m-b-13.color0-hov
-              = button_to "Log In", new_user_session_path
+              = button_to "Log In", new_user_session_path, class: "txt19"
             %li.t-center.m-b-13
-              = link_to "Sign Up", new_user_registration_path
+              = link_to "Sign Up", new_user_registration_path, class: "txt19"
         %li.t-center
           / Button3
           %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => reservation_path}
