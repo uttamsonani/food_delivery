@@ -9,28 +9,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
-  def create
-    super
-    UserMailer.create_noti(@user).deliver_now
-  end
+  # # POST /resource
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
   #   super
   # end
 
-  # PUT /resource
-  def update
-    super
-    UserMailer.update_noti.deliver_now
-  end
+  # # PUT /resource
+  # def update
+  #   super
+  # end
 
-  # DELETE /resource
-  def destroy
-    super
-    UserMailer.delete_noti.deliver_now
-  end
+  # # DELETE /resource
+  # def destroy
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
