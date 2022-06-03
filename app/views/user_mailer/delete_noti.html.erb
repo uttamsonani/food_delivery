@@ -1,8 +1,11 @@
 <h1>Hello <%= @user.first_name %></h1>
 
 <p>
-  <%= @greeting %> <%= @user.first_name %> <%= @user.last_name %> Your Account has been Deleted On PATO PLACE 
+  <%= @greeting %> <%= @user.full_name %> Your Account has been Deleted On PATO PLACE 
 </p>
+
+<p><strong>Date:</strong> <%= Date.today %></p>
+
 <% @user.attributes.except("id", "country", "encrypted_password", "updated_at", "reset_password_token", "reset_password_sent_at", 
       "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at",
       "unconfirmed_email").each do |key, value| %>

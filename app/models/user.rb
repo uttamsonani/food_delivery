@@ -12,7 +12,7 @@ class User < ApplicationRecord
     after_save :full_name
 
     after_create :send_create_noti
-    after_validation :send_update_noti
+    after_validation :send_update_noti, on: :update
     after_destroy :send_destroy_noti
 
     # VALIDATION
@@ -32,11 +32,11 @@ class User < ApplicationRecord
     end
 
     def send_create_noti
-        UserMailer.with(user: self).create_noti.deliver_now
+        UserMailer.with(user: self).create_noti.deliver_later
     end
 
     def send_update_noti
-        UserMailer.with(user: self).update_noti.deliver_later 
+        UserMailer.with(user: self).update_noti.deliver_now 
     end
 
     def send_destroy_noti

@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @greeting = "Hi"
     
-    mail to: @user.email , subject: "About Your Created Account"
+    mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Created Account"
     # @user.email
   end
 
@@ -12,14 +12,15 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @greeting = "Hi"
 
-    # attachments.inline["avatar-01.jpg"] = File.read("#{Rails.root}/app/assets/images/avatar-01.jpg")
-    mail to: @user.email, subject: "About Your Updated Account"
+    # attachments.inline["/icons/logo2.png"] = File.read("#{Rails.root}/app/assets/images/icons/logo2.png")
+    # mail to: @user.email, subject: "About Your Updated Account"
+   mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Updated Account"
   end
 
   def delete_noti
     @user = params[:user]
     @greeting = "Hi"
     
-    mail to:  @user.email, subject: "About Your Deleted Account"
+    mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Deleted Account"
   end
 end
