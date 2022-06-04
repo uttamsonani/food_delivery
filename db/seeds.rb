@@ -11,7 +11,7 @@
 #     [ { name: "Starters" }, { name: "Happy Hour" }, { name: "Lunch" }, { name: "Dinner" }, { name: "Drink" }, { name: "Dessert" } ]
 # )
 
-# Food Create for Starters 
+# # Food Create for Starters 
 # Food.create(
 #     [
 #         { name: "Aloo tikki", description: "So these are potato patties made the Indian way – spiced, herby and delicious", price: 89, categories: Category.where(id: [1, 2, 3, 4]) },                                                   
@@ -25,7 +25,7 @@
 #     ]   
 # )
 
-# Food Create For Happy Hours
+# # Food Create For Happy Hours
 # Food.create(
 #     [                                                          
 #     { name: "Naan bread pizzas", description: "Classic pizza veggies, like onion, tomatoes, olives, peppers, and pineapple (controversial, yes, but don’t yuck anyone’s yum!)", price: 99, categories: Category.where(id: [2]) },
@@ -39,7 +39,7 @@
 #     ]
 # )
 
-# Food Create for Lunch
+# # Food Create for Lunch
 # Food.create(
 #     [ 
 #         { name: "Masala Bhindi", description: "Grab some mustard oil, cumin seeds, fennel seeds, finely-chopped onions, ginger and a pinch of amchoor.", price: 109,  categories: Category.where(id: [3])}, 
@@ -56,7 +56,7 @@
 #     ]
 # )
 
-# Food Create For Dinner 
+# # Food Create For Dinner 
 # Food.create(
 #     [ 
 #         { name: "Broccoli pesto & pancetta pasta", description: "Serve this healthy bowl of pasta topped with cherry tomatoes for a quick and easy midweek meal.", price: 109, categories: Category.where(id: [4])}, 
@@ -74,7 +74,7 @@
 #     ]
 # )
 
-# Food Create For Drink
+# # Food Create For Drink
 # Food.create(
 #     [ 
 #         { name: "Water", description: "Bisleri Water.", price: 19, categories: Category.where(id: [5])}, 
@@ -92,7 +92,7 @@
 #     ]
 # )
 
-# Food Create For Dessert 
+# # Food Create For Dessert 
 # Food.create(
 #     [ 
 #         { name: "Rosterd Almond Ice-Cream", description: "Full almond Ice cream.", price: 99, categories: Category.where(id: [6])}, 

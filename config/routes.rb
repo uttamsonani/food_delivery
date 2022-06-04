@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'home/gallery', as: :gallery
   get 'home/about', as: :about
   get 'home/index', as: :index
-  get 'home/reservation', as: :reservation
+  
+  get 'reservation', to: 'reservation#create_reservation'
+  post 'reservation', to: 'reservation#create_reservation'
 
   get 'search', to: 'home#search'
   

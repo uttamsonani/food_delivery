@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-    before_action :authenticate_user!, only: %i[search  menu reservation blog_detail]
+    before_action :authenticate_user!, only: %i[search  menu blog_detail]
     
     def index
     end
@@ -7,8 +7,8 @@ class HomeController < ApplicationController
     def menu
     end
 
-    def reservation
-    end
+    # def reservation
+    # end
 
     def gallery
     end

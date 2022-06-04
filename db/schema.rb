@@ -64,8 +64,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
   end
 
   create_table "reservations", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
     t.integer "persons"
-    t.datetime "time", precision: nil
+    t.integer "phone_no"
+    t.time "time"
+    t.date "date"
     t.string "special_request"
     t.integer "users_id"
     t.integer "dining_tables_id"

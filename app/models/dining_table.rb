@@ -1,7 +1,7 @@
 class DiningTable < ApplicationRecord
-    has many :reservations
+    has_many :reservations
 
     # VALIDATION 
-    validates :table_no, presence: true numericality: { only_integer: true }
-    validates :number_of_seats, presence: true numericality: { only_integer: true }
+    validates :table_no, presence: true, numericality: { only_integer: true }
+    validates :number_of_seats, presence: true, numericality: { only_integer: true }
 end

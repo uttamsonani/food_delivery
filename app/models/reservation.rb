@@ -5,4 +5,8 @@ class Reservation < ApplicationRecord
     # VALIDATION
     validates :persons, presence: true, numericality: { only_integer: true }
     validates :time, presence: true
+    validates :name, presence: true
+    validates :email, presence: true
+    validates :phone_no, presence: true, numericality: { only_integer: true }
+    validates :date, presence: true
 end
