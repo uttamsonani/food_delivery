@@ -1,0 +1,16 @@
+
+  <p>
+    <strong>Description:</strong>
+    <%= @reservation.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @reservation.email %>
+  </p>
+
+<div>
+  <%= link_to "Edit this Reservation", edit_reservation_path(@reservation), class: " btn btn-outline-dark btn-sm" %> |
+
+  <%= button_to "Destroy this Reservation", @reservation, method: :delete, class: "btn btn-m btn-outline-danger" %>
+</div>

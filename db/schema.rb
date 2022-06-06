@@ -71,12 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
     t.time "time"
     t.date "date"
     t.string "special_request"
-    t.integer "users_id"
-    t.integer "dining_tables_id"
+    t.integer "user_id"
+    t.integer "dining_table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dining_tables_id"], name: "index_reservations_on_dining_tables_id"
-    t.index ["users_id"], name: "index_reservations_on_users_id"
+    t.index ["dining_table_id"], name: "index_reservations_on_dining_table_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

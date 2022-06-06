@@ -32,7 +32,7 @@
                   %li
                     %a{:href => "/home/menu"} Menu
                   %li
-                    %a{:href => reservation_path } Reservation
+                    %a{:href => new_reservation_path } Reservation
                   %li
                     %a{:href => "/home/gallery"} Gallery
                   %li
@@ -43,11 +43,11 @@
                     %a{:href => "/home/contact"} Contact
             / Social
             .social.flex-w.flex-l-m.p-r-20
-              %a{:href => "#"}
+              %a{:href => "/home/menu"}
                 %i.fa.fa-tripadvisor{"aria-hidden" => "true"}
-              %a{:href => "#"}
+              %a{:href => "/home/menu"}
                 %i.fa.fa-facebook.m-l-21{"aria-hidden" => "true"}
-              %a{:href => "#"}
+              %a{:href => "/home/menu"}
                 %i.fa.fa-twitter.m-l-21{"aria-hidden" => "true"}
               %button.btn-show-sidebar.m-l-33.trans-0-4
     = yield
@@ -85,7 +85,7 @@
               = link_to "Sign Up", new_user_registration_path, class: "txt19"
         %li.t-center
           / Button3
-          %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => reservation_path }
+          %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => new_reservation_path }
             Reservation
       / -
       .gallery-sidebar.t-center.p-l-60.p-r-60.p-b-40

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get 'home/about', as: :about
   get 'home/index', as: :index
   
-  get 'reservation', to: 'reservation#create_reservation'
-  post 'reservation', to: 'reservation#create_reservation'
-
+  # get 'reservations', to: 'reservations#create'
+  resources :reservations
+  
   get 'search', to: 'home#search'
   
   # Defines the root path route ("/")
