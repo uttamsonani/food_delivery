@@ -1,0 +1,42 @@
+<% content_for :title do %>
+  Reservation History 
+<% end %>
+<!-- Title Page -->
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(<%= image_url 'bg-title-page-03.jpg' %>);">
+    <h2 class="tit6 t-center">
+        Reservation History
+    </h2>
+</section>
+
+	<!-- Reservation -->
+<section class="section-reservation bg1-pattern p-t-100 p-b-113">
+	<div class="container">
+        <% if current_user.reservations.blank? %>
+           <h4 class="text-center font-weight-bold p-3 m-3">NO RECORED FOUND</h4> 
+        <% else %>
+            <h2 class="text-center font-weight-bold pb-3">Your Reservations</h2>
+            <table class="table table-dark table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Phone No</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @reservations.each do |reservation| %>
+                    <tr>
+                        <td><%= reservation.name %></td>
+                        <td><%= reservation.phone_no %></td>
+                        <td><%= reservation.date %></td>
+                        <td><%= link_to "Show this Reservation", reservation %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <%== pagy_bootstrap_nav(@pagy) %>
+        <% end %>
+    </div>
+</section>

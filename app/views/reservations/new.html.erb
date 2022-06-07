@@ -1,9 +1,13 @@
-	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(<%= image_url 'bg-title-page-02.jpg' %>);">
-		<h2 class="tit6 t-center">
-			Reservation
-		</h2>
-	</section>
+<% content_for :title do %>
+  Reservation  
+<% end %>
+
+<!-- Title Page -->
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(<%= image_url 'bg-title-page-02.jpg' %>);">
+	<h2 class="tit6 t-center">
+		Reservation
+	</h2>
+</section>
 
 
 	<!-- Reservation -->
@@ -21,47 +25,9 @@
 					</h3>
 				</div>	
 
-				<%# <%= form_with model: [ @user, @user.reservations.build ] do |form| %> %>
-				<%= form_for(@reservation) do |form| %>
-					<div>
-						<%= form.label :name %>
-						<%= form.text_field :name, value: current_user.full_name, class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :phone_no %>
-						<%= form.text_field :phone_no, value: current_user.phone_no, class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :email %>
-						<%= form.text_field :email, value: current_user.email, class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :persons %>
-						<%= form.select :persons, [["1 Person"], ["2 Person"], ["3 Person"], ["4 Person"], ["5 Person"], ["6 Person"], ["7 Person"], ["8 Person"], ["9 Person"], ["10 Person"]], class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :date %> :
-						<%= form.date_select :date, class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :time %> :
-						<%= form.time_select :time, class:"form-control"%>
-					</div><br>
-
-					<div>
-						<%= form.label :special_request %>
-						<%= form.text_area :special_request, class:"form-control"%>
-					</div><br>
-
-					<%= form.submit "Book Table", class:"btn btn-block btn3 mtxt11" %>
-
-				<% end %>
-
+				<%# <%= form_with model: [ @user, @user.reservations.build ] do |form| %> 
+				<%= render "form", reservation: @reservation %><br>
+				<%= link_to "Reservation History", reservations_path, class: "btn btn-sm btn-block btn-outline-primary" %>
 			</div>
 		</div>
 

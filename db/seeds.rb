@@ -109,3 +109,21 @@
 #         { name: "Rhubarb crumble", description: "Make this classic rhubarb crumble for an easy, family-friendly dessert. ", price: 169 , categories: Category.where(id: [6])},  
 #     ]
 # )
+
+# # Dining Table Create 
+# DiningTable.create(
+#     [
+#         { table_no: 1, number_of_seats: 2 },
+#         { table_no: 2, number_of_seats: 2 },
+#         { table_no: 3, number_of_seats: 2 },
+#         { table_no: 4, number_of_seats: 4 },
+#         { table_no: 5, number_of_seats: 4 },
+#         { table_no: 6, number_of_seats: 4 },
+#         { table_no: 7, number_of_seats: 6 },
+#         { table_no: 8, number_of_seats: 6 },
+#         { table_no: 9, number_of_seats: 6 },
+#         { table_no: 10, number_of_seats: 8 },
+#         { table_no: 11, number_of_seats: 8 },
+#         { table_no: 12, number_of_seats: 8 }
+#     ]
+# )
