@@ -9,17 +9,22 @@ class ReservationsController < ApplicationController
 
     # New Reservation 
     def new
-        @reservation = Reservation.new
-        # @reservation.build_user
+      @reservation = Reservation.new
+      # The Below line for Debug and know to unusel behaviour
+      # logger.debug "New reservation: #{@reservation.attributes.inspect}"
+      # logger.debug "reservation should be valid: #{@reservation.valid?}"
+      # @reservation.build_user
     end
 
     # Create Reservation
     def create
       @reservation = current_user.reservations.create(reservation_params)
-
+    
       respond_to do |format|
         if @reservation.save
-          format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }  
+          # The Below line for Debug and know to unusel behaviour
+          # logger.debug "The article was saved and now the user is going to be redirected..."
+          format.html { redirect_to reservations_path, notice: "Reservation was successfully created." }  
         else
       #   puts @reservation.errors.full_messages
           format.html { render :new, status: :unprocessable_entity }
@@ -49,8 +54,7 @@ class ReservationsController < ApplicationController
       # redirect_to index_path
 
       respond_to do |format|
-        format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
-        format.json { head :no_content }
+        format.html { redirect_to reservations_url(@reservation), notice: "Reservation was successfully destroyed." }
       end
     end
 

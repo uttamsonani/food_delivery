@@ -5,7 +5,7 @@ class ReservationMailer < ApplicationMailer
     @reservation = params[:reservation]
     @greeting = "Hi"
     
-    mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Created Reservavtion"
+    mail to: email_address_with_name(@reservation.email, @reservation.name), subject: "About Your Created Reservavtion"
   end
 
   def update_reservation
@@ -13,7 +13,7 @@ class ReservationMailer < ApplicationMailer
     @reservation = params[:reservation]
     @greeting = "Hi"
     
-    mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Updated Reservavtion"
+    mail to: email_address_with_name(@reservation.email, @reservation.name), subject: "About Your Updated Reservavtion"
   end
 
   def delete_reservation
@@ -21,7 +21,7 @@ class ReservationMailer < ApplicationMailer
     @reservation = params[:reservation]
     @greeting = "Hi"
     
-    mail to: email_address_with_name(@user.email, @user.full_name), subject: "About Your Deleted Reservavtion"
+    mail to: email_address_with_name(@reservation.email, @reservation.name), subject: "About Your Deleted Reservavtion"
   end
 
 end

@@ -3,9 +3,9 @@ class Reservation < ApplicationRecord
     belongs_to :dining_table
 
     after_create :create_reservation
-    # after_validation :send_update_noti, on: :update
-    # after_destroy :send_destroy_noti
-    after_validation :set_table_no
+    after_validation :update_reservation, on: :update
+    after_destroy :delete_reservation
+    # after_validation :set_table_no
 
     # VALIDATION
     validates :persons, presence: true
@@ -15,20 +15,20 @@ class Reservation < ApplicationRecord
     validates :phone_no, presence: true, numericality: { only_integer: true }
     validates :date, presence: true
 
-
-    def set_table_no
+    # CALLBACKS
+    # def set_table_no
         
-    end
+    # end
 
     def create_reservation
-        ReservationMailer.with(user: self).create_reservation.deliver_later
+        ReservationMailer.with(reservation: self).create_reservation.deliver_later
     end
 
-    def send_update_noti
-        UserMailer.with(user: self).update_noti.deliver_now 
+    def update_reservation
+        ReservationMailer.with(reservation: self).update_reservation.deliver_now 
     end
 
-    def send_destroy_noti
-        UserMailer.with(user: self).delete_noti.deliver_now
+    def delete_reservation
+        ReservationMailer.with(reservation: self).delete_reservation.deliver_now
     end
 end
