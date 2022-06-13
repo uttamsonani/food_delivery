@@ -28,19 +28,19 @@
               %nav.menu
                 %ul.main_menu
                   %li
-                    %a{:href => "/home/index"} Home
+                    %a{:href => "/home/index"}= t 'menu.home'
                   %li
-                    %a{:href => "/home/menu"} Menu
+                    %a{:href => "/home/menu"}= t 'menu.menu'
                   %li
-                    %a{:href => new_reservation_path } Reservation
+                    %a{:href => new_reservation_path }= t 'menu.reservation'
                   %li
-                    %a{:href => "/home/gallery"} Gallery
+                    %a{:href => "/home/gallery"}= t 'menu.gallery'
                   %li
-                    %a{:href => "/home/about"} About
+                    %a{:href => "/home/about"}= t 'menu.about'
                   %li
-                    %a{:href => "/home/blog"} Blog
+                    %a{:href => "/home/blog"}= t 'menu.blog'
                   %li
-                    %a{:href => "/home/contact"} Contact
+                    %a{:href => "/home/contact"}= t 'menu.contact'
             / Social
             .social.flex-w.flex-l-m.p-r-20
               %a{:href => "/home/menu"}
@@ -61,37 +61,42 @@
           - if user_signed_in?
             = current_user.full_name
         %li.t-center.m-b-13
-          %a.txt19{:href => index_path} Home
+          %a.txt19{:href => index_path}= t 'menu.home'
         %li.t-center.m-b-13
-          %a.txt19{:href => menu_path} Menu
+          %a.txt19{:href => menu_path}= t 'menu.menu'
         %li.t-center.m-b-13
-          %a.txt19{:href => gallery_path} Gallery
+          %a.txt19{:href => gallery_path}= t 'menu.gallery'
         %li.t-center.m-b-13
-          %a.txt19{:href => about_path} About
+          %a.txt19{:href => about_path}= t 'menu.about'
         %li.t-center.m-b-13
-          %a.txt19{:href => blog_path} Blog
+          %a.txt19{:href => blog_path}= t 'menu.blog'
         %li.t-center.m-b-13
-          %a.txt19{:href => contact_path} Contact
+          %a.txt19{:href => contact_path}= t 'menu.contact'
+        %li.t-center.m-b-13
+          - if current_page?(locale: :gu)
+            = link_to "Switch to English", locale: :en
+          - else
+            = link_to "Switch to Gujrati", locale: :gu
         %li.t-center.m-b-13
           - if user_signed_in?
             %li.t-center.m-b-13.color0-hov
-              = link_to "Account Settings", edit_user_registration_path, class: "txt19"
+              = link_to t('auth.Account Settings'), edit_user_registration_path, class: "txt19"
             %li.t-center.m-b-13
-              = button_to "Log Out", destroy_user_session_path, method: :delete, class: "txt19"
+              = button_to t('auth.Log Out'), destroy_user_session_path, method: :delete, class: "txt19"
           - else
             %li.t-center.m-b-13.color0-hov
-              = button_to "Log In", new_user_session_path, class: "txt19"
+              = button_to t('auth.Log In'), new_user_session_path, class: "txt19"
             %li.t-center.m-b-13
-              = link_to "Sign Up", new_user_registration_path, class: "txt19"
+              = link_to t('auth.Sign Up'), new_user_registration_path, class: "txt19"
         %li.t-center
           / Button3
           %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => new_reservation_path }
-            Reservation
+            = t 'menu.reservation'
       / -
       .gallery-sidebar.t-center.p-l-60.p-r-60.p-b-40
         / -
         %h4.txt20.m-b-33
-          Gallery
+          = t 'menu.gallery'
         / Gallery
         .wrap-gallery-sidebar.flex-w
           %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-01.jpg'}"}
@@ -111,7 +116,7 @@
           %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-10.jpg'}"}
             = image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY"
           %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-11.jpg'}"}
-            = image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY"
+            = image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY"        
     / Footer
     %footer.bg1
       .container.p-t-40.p-b-70
@@ -119,7 +124,7 @@
           .col-sm-6.col-md-4.p-t-50
             / -
             %h4.txt13.m-b-33
-              Contact Us
+              =t 'footer.Contact Us'
             %ul.m-b-70
               %li.txt14.m-b-14
                 %i.fa.fa-map-marker.fs-16.dis-inline-block.size19{"aria-hidden" => "true"}
@@ -132,16 +137,16 @@
                 contact@site.com
             / -
             %h4.txt13.m-b-32
-              Opening Times
+              =t 'footer.Opening Times'
             %ul
               %li.txt14
                 09:30 AM – 11:00 PM
               %li.txt14
-                Every Day
+                =t 'footer.Every Day'
           .col-sm-6.col-md-4.p-t-50
             / -
             %h4.txt13.m-b-33
-              Latest twitter
+              =t 'footer.Latest twitter'
             .m-b-25
               %span.fs-13.color2.m-r-5
                 %i.fa.fa-twitter{"aria-hidden" => "true"}
@@ -168,7 +173,7 @@
           .col-sm-6.col-md-4.p-t-50
             / -
             %h4.txt13.m-b-38
-              Gallery
+              =t 'menu.gallery'
             / Gallery footer
             .wrap-gallery-footer.flex-w
               %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-01.jpg'}"}

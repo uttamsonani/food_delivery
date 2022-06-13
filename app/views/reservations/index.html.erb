@@ -27,12 +27,15 @@
 
                 <tbody>
                     <% @reservations.each do |reservation| %>
-                    <tr>
-                        <td><%= reservation.name %></td>
-                        <td><%= reservation.phone_no %></td>
-                        <td><%= reservation.date %></td>
-                        <td><%= link_to "Show this Reservation", reservation %></td>
-                    </tr>
+                     <%# Fragment Caching %>
+                        <% cache reservation do %>
+                            <tr>
+                                <td><%= reservation.name %></td>
+                                <td><%= reservation.phone_no %></td>
+                                <td><%= reservation.date %></td>
+                                <td><%= link_to "Show this Reservation", reservation %></td>
+                            </tr>
+                        <% end %>
                     <% end %>
                 </tbody>
             </table>

@@ -18,6 +18,10 @@ module FoodDelivery
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+    I18n.available_locales = [:en, :gu]
+    I18n.default_locale = :en
 
     config.active_job.queue_adapter = :sidekiq
 

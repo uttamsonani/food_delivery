@@ -1,0 +1,65 @@
+gu:
+  auth: 
+    Log In: લૉગ ઇન કરો
+    Sign Up: સાઇન અપ કરો
+    Account Settings: એકાઉન્ટ સેટિંગસ
+    Log Out: લૉગ આઉટ
+
+  menu:
+    pato menu: પેટો મેનુ
+    home: હોમ
+    menu: મેનુ
+    reservation: આરક્ષણ
+    gallery: ગેલેરી
+    about: વિશે
+    blog: બ્લોગ
+    contact: સંપર્ક કરો
+    discover: શોધો
+    our menu: અમારું મેનુ
+    lunch: બપોરનું ભોજન
+    Dinner: રાત્રિભોજન
+    Happy Hour: ખુશ કલાક
+    Dessert: મીઠાઈ
+    Drink: પીણું
+    Starters: શરૂઆત
+    Look Menu: મેનુ જુઓ
+
+  blog:
+    welcome: સ્વાગત છે
+    Italian Restaurant: ઇટાલિયન રેસ્ટોરન્ટ
+    our story: વધુ જુઓ
+    The Blog: બ્લોગ
+    Latest News: તાજી ખબર
+    Learn More: વધુ જાણો
+    Continue Reading: વાંચન ચાલુ રાખો
+
+  event:
+    Events: પ્રસંગ      
+    Upcomming: આવનારા 
+
+  reservation:
+    Reservation: આરક્ષણ
+    Book table: ટેબલ બુક કરો
+
+  review:
+    Customers Say: ગ્રાહકો કહે છે
+    Review: સમીક્ષા
+
+  footer: 
+    Latest twitter: નવીનતમ ટ્વિટર
+    Opening Times: ખુલવાનો સમય
+    Every Day: દરરોજ
+    Contact Us: અમારો સંપર્ક કરો
+
+  search:  
+    Search: શોધો
+    Search your favourit food: તમારા મનપસંદ ખોરાક શોધો
+
+  title:
+    About Us: અમારા વિશે
+    Blog Details: બ્લોગ વિગતો
+    Blog: બ્લોગ
+    Contact: સંપર્ક કરો
+    Gallery: ગેલેરી
+    Reservation: આરક્ષણ
+    Search Result: શોધ પરિણામ
