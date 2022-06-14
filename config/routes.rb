@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  # scope "(:locale)", locale: /en|gu/ do
+  scope "(:locale)", locale: /en|gu/ do
     devise_for :users
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     root to: "home#index"
@@ -14,10 +14,12 @@ Rails.application.routes.draw do
     get 'home/index', as: :index
     
     # get 'reservations', to: 'reservations#create'
-    resources :reservations
     
     get 'search', to: 'home#search'
-  # end
-  # Defines the root path route ("/")
+    end
+    
+  resources :reservations
+  
+    # Defines the root path route ("/")
   # root "articles#index"
 end

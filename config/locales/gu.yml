@@ -63,3 +63,10 @@ gu:
     Gallery: ગેલેરી
     Reservation: આરક્ષણ
     Search Result: શોધ પરિણામ
+
+  date: 
+    formats: 
+      default: "%Y-%M-%D"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    order: ["day", "month", "year"]

@@ -21,7 +21,7 @@ class Reservation < ApplicationRecord
     # end
 
     def create_reservation
-        ReservationMailer.with(reservation: self).create_reservation.deliver_later
+        ReservationMailer.with(reservation: self).create_reservation.deliver_now
     end
 
     def update_reservation

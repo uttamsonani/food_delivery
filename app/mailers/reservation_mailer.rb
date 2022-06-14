@@ -21,7 +21,7 @@ class ReservationMailer < ApplicationMailer
     @reservation = params[:reservation]
     @greeting = "Hi"
     
-    mail to: email_address_with_name(@reservation.email, @reservation.name), subject: "About Your Deleted Reservavtion"
+    mail to: email_address_with_name(@reservation.email, @reservation.name), subject: "About Your Cancle Reservavtion"
   end
 
 end

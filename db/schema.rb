@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
   end
 
   create_table "food_categories", force: :cascade do |t|
-    t.integer "food_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "food_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_food_categories_on_category_id"
@@ -44,23 +47,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
   end
 
   create_table "order_foods", force: :cascade do |t|
-    t.integer "orders_id", null: false
-    t.integer "foods_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "food_id", null: false
     t.float "amount"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["foods_id"], name: "index_order_foods_on_foods_id"
-    t.index ["orders_id"], name: "index_order_foods_on_orders_id"
+    t.index ["food_id"], name: "index_order_foods_on_food_id"
+    t.index ["order_id"], name: "index_order_foods_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.float "amount"
-    t.string "status"
-    t.integer "users_id"
+    t.string "statu"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_orders_on_users_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -71,8 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
     t.time "time"
     t.date "date"
     t.string "special_request"
-    t.integer "user_id"
-    t.integer "dining_table_id"
+    t.bigint "user_id"
+    t.bigint "dining_table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dining_table_id"], name: "index_reservations_on_dining_table_id"
@@ -90,7 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.integer "zip_code", limit: 6
+    t.bigint "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -107,6 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
 
   add_foreign_key "food_categories", "categories"
   add_foreign_key "food_categories", "foods"
-  add_foreign_key "order_foods", "foods", column: "foods_id"
-  add_foreign_key "order_foods", "orders", column: "orders_id"
+  add_foreign_key "order_foods", "foods"
+  add_foreign_key "order_foods", "orders"
 end

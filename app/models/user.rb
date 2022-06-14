@@ -32,7 +32,7 @@ class User < ApplicationRecord
     end
 
     def send_create_noti
-        UserMailer.with(user: self).create_noti.deliver_later
+        UserMailer.with(user: self).create_noti.deliver_now
     end
 
     def send_update_noti
