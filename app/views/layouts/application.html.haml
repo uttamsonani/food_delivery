@@ -11,6 +11,7 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
     = javascript_importmap_tags
+    = javascript_include_tag "application"
     = favicon_link_tag "icons/favicon.png"
   / Header
   %body
@@ -232,4 +233,4 @@
             %iframe{:allowfullscreen => "", :src => "https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&showinfo=0"}
     :javascript
       $('.parallax100').parallax100();
-    = javascript_include_tag "application"
+    -# = javascript_include_tag "application"
