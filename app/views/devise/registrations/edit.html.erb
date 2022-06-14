@@ -1,0 +1,110 @@
+<% content_for :title do %>
+  <%= "Edit Profile | #{current_user.full_name} " %>
+<% end %>
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+    style="background-image: url(<%= image_url 'bg-title-page-03.jpg' %>);">
+    <h2 class="tit6 t-center">
+      Edit Your Profile 
+    </h2>
+	</section>
+
+<section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
+  <div class="container">
+
+  <h2 class="text-center txt55">Edit <%= resource_name.to_s.humanize %></h2><br>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %><br>
+
+      <div class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true, placeholder:"Enter Your First Name", autocomplete: "first_name", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: true, placeholder:"Enter Your Last Name", autocomplete: "last_name", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :phone_no %><br />
+        <%= f.telephone_field :phone_no, placeholder:"Enter Your Mobile no.", autocomplete: "phone_no", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :gender %><br />
+        <%= f.select :gender, [["Male"], ["Female"], ["Other"]], placeholder:"Enter Your Gender", include_blank: "Select Gender", class:"form-select" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :address %><br />
+        <%= f.text_area :address, placeholder:"Enter Your Address", autocomplete: "address", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :landmark %><br />
+        <%= f.text_field :landmark, placeholder:"Enter Your Landmark", autocomplete: "landmark", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, placeholder:"Enter Your City", autocomplete: "city", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :state %><br />
+        <%= f.text_field :state, placeholder:"Enter Your State", autocomplete: "state", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :zip_code %><br />
+        <%= f.text_field :zip_code, placeholder:"Enter Your Zip Code", autocomplete: "zip_code", class:"form-control" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+      </div><br>
+
+      <div class="actions">
+        <%= f.submit "Update", class:"btn mtxt11 btn-block btn-success" %>
+      </div>
+    <% end %><br>
+
+    <div class="card">
+      <div class="card-header">
+        <h4 class="text-center">Cancel my account</h4>    
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Unhappy?</h5>
+        <p class="card-text"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class:"btn mtxt12 btn-sm btn-block btn-outline-danger" %></p><br>
+      </div>
+    </div><br>
+
+    <%= link_to "Back", index_path, class:"btn mtxt11 btn-block btn-secondary mtxt11" %>
+  </div>
+</section>

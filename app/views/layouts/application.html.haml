@@ -1,0 +1,235 @@
+!!!
+%html
+  %head
+    %title
+      - if content_for? :title
+        = yield :title
+      - else
+        FoodDelivery
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    = favicon_link_tag "icons/favicon.png"
+  / Header
+  %body
+    %header
+      / Header desktop
+      .wrap-menu-header.gradient1.trans-0-4
+        .container.h-full
+          .wrap_header.trans-0-3
+            / Logo
+            .logo
+              %a{:href => "/home/index"}
+                = image_tag "icons/logo.png",  alt: "IMG-LOGO", data_logofixed: "icons/logo2.png"
+            / Menu
+            .wrap_menu.p-l-45.p-l-0-xl
+              %nav.menu
+                %ul.main_menu
+                  %li
+                    %a{:href => "/home/index"}= t 'menu.home'
+                  %li
+                    %a{:href => "/home/menu"}= t 'menu.menu'
+                  %li
+                    %a{:href => new_reservation_path }= t 'menu.reservation'
+                  %li
+                    %a{:href => "/home/gallery"}= t 'menu.gallery'
+                  %li
+                    %a{:href => "/home/about"}= t 'menu.about'
+                  %li
+                    %a{:href => "/home/blog"}= t 'menu.blog'
+                  %li
+                    %a{:href => "/home/contact"}= t 'menu.contact'
+            / Social
+            .social.flex-w.flex-l-m.p-r-20
+              %a{:href => "/home/menu"}
+                %i.fa.fa-tripadvisor{"aria-hidden" => "true"}
+              %a{:href => "/home/menu"}
+                %i.fa.fa-facebook.m-l-21{"aria-hidden" => "true"}
+              %a{:href => "/home/menu"}
+                %i.fa.fa-twitter.m-l-21{"aria-hidden" => "true"}
+              %button.btn-show-sidebar.m-l-33.trans-0-4
+    = yield
+    / Sidebar
+    %aside.sidebar.trans-0-4
+      / Button Hide sidebar
+      %button.btn-hide-sidebar.ti-close.color0-hov.trans-0-4
+      / -
+      %ul.menu-sidebar.p-t-95.p-b-70
+        %li.t-center.m-b-13
+          - if user_signed_in?
+            = current_user.full_name
+        %li.t-center.m-b-13
+          %a.txt19{:href => index_path}= t 'menu.home'
+        %li.t-center.m-b-13
+          %a.txt19{:href => menu_path}= t 'menu.menu'
+        %li.t-center.m-b-13
+          %a.txt19{:href => gallery_path}= t 'menu.gallery'
+        %li.t-center.m-b-13
+          %a.txt19{:href => about_path}= t 'menu.about'
+        %li.t-center.m-b-13
+          %a.txt19{:href => blog_path}= t 'menu.blog'
+        %li.t-center.m-b-13
+          %a.txt19{:href => contact_path}= t 'menu.contact'
+        %li.t-center.m-b-13
+          - if current_page?(locale: :gu)
+            = link_to "Switch to English", locale: :en
+          - else
+            = link_to "Switch to Gujrati", locale: :gu
+        %li.t-center.m-b-13
+          - if user_signed_in?
+            %li.t-center.m-b-13.color0-hov
+              = link_to t('auth.Account Settings'), edit_user_registration_path, class: "txt19"
+            %li.t-center.m-b-13
+              = button_to t('auth.Log Out'), destroy_user_session_path, method: :delete, class: "txt19"
+          - else
+            %li.t-center.m-b-13.color0-hov
+              = button_to t('auth.Log In'), new_user_session_path, class: "txt19"
+            %li.t-center.m-b-13
+              = link_to t('auth.Sign Up'), new_user_registration_path, class: "txt19"
+        %li.t-center
+          / Button3
+          %a.btn3.flex-c-m.size13.txt11.trans-0-4.m-l-r-auto{:href => new_reservation_path }
+            = t 'menu.reservation'
+      / -
+      .gallery-sidebar.t-center.p-l-60.p-r-60.p-b-40
+        / -
+        %h4.txt20.m-b-33
+          = t 'menu.gallery'
+        / Gallery
+        .wrap-gallery-sidebar.flex-w
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-01.jpg'}"}
+            = image_tag "photo-gallery-thumb-01.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-02.jpg'}"}
+            = image_tag "photo-gallery-thumb-02.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-03.jpg'}"}
+            = image_tag "photo-gallery-thumb-03.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-05.jpg'}"}
+            = image_tag "photo-gallery-thumb-05.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-06.jpg'}"}
+            = image_tag "photo-gallery-thumb-06.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-07.jpg'}"}
+            = image_tag "photo-gallery-thumb-07.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-09.jpg'}"}
+            = image_tag "photo-gallery-thumb-09.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-10.jpg'}"}
+            = image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY"
+          %a.item-gallery-sidebar.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-11.jpg'}"}
+            = image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY"        
+    / Footer
+    %footer.bg1
+      .container.p-t-40.p-b-70
+        .row
+          .col-sm-6.col-md-4.p-t-50
+            / -
+            %h4.txt13.m-b-33
+              =t 'footer.Contact Us'
+            %ul.m-b-70
+              %li.txt14.m-b-14
+                %i.fa.fa-map-marker.fs-16.dis-inline-block.size19{"aria-hidden" => "true"}
+                8th floor, 379 Hudson St, New York, NY 10018
+              %li.txt14.m-b-14
+                %i.fa.fa-phone.fs-16.dis-inline-block.size19{"aria-hidden" => "true"}
+                (+1) 96 716 6879
+              %li.txt14.m-b-14
+                %i.fa.fa-envelope.fs-13.dis-inline-block.size19{"aria-hidden" => "true"}
+                contact@site.com
+            / -
+            %h4.txt13.m-b-32
+              =t 'footer.Opening Times'
+            %ul
+              %li.txt14
+                09:30 AM – 11:00 PM
+              %li.txt14
+                =t 'footer.Every Day'
+          .col-sm-6.col-md-4.p-t-50
+            / -
+            %h4.txt13.m-b-33
+              =t 'footer.Latest twitter'
+            .m-b-25
+              %span.fs-13.color2.m-r-5
+                %i.fa.fa-twitter{"aria-hidden" => "true"}
+              %a.txt15{:href => "#"}
+                @colorlib
+              %p.txt14.m-b-18
+                Activello is a good option. It has a slider built into that displays the featured image in
+                the slider.
+                %a.txt15{:href => "#"}
+                  https://buff.ly/2zaSfAQ
+              %span.txt16
+                21 Dec 2017
+            %div
+              %span.fs-13.color2.m-r-5
+                %i.fa.fa-twitter{"aria-hidden" => "true"}
+              %a.txt15{:href => "#"}
+                @colorlib
+              %p.txt14.m-b-18
+                Activello is a good option. It has a slider built into that displays
+                %a.txt15{:href => "#"}
+                  https://buff.ly/2zaSfAQ
+              %span.txt16
+                21 Dec 2017
+          .col-sm-6.col-md-4.p-t-50
+            / -
+            %h4.txt13.m-b-38
+              =t 'menu.gallery'
+            / Gallery footer
+            .wrap-gallery-footer.flex-w
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-01.jpg'}"}
+                = image_tag "photo-gallery-thumb-01.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-02.jpg'}"}
+                = image_tag "photo-gallery-thumb-02.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-03.jpg'}"}
+                = image_tag "photo-gallery-thumb-03.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-04.jpg'}"}
+                = image_tag "photo-gallery-thumb-04.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-05.jpg'}"}
+                = image_tag "photo-gallery-thumb-05.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-06.jpg'}"}
+                = image_tag "photo-gallery-thumb-06.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-07.jpg'}"}
+                = image_tag "photo-gallery-thumb-07.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-08.jpg'}"}
+                = image_tag "photo-gallery-thumb-08.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-09.jpg'}"}
+                = image_tag "photo-gallery-thumb-09.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-10.jpg'}"}
+                = image_tag "photo-gallery-thumb-10.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-11.jpg'}"}
+                = image_tag "photo-gallery-thumb-11.jpg", alt: "GALLERY"
+              %a.item-gallery-footer.wrap-pic-w{"data-lightbox" => "gallery-footer", :href => "#{image_url 'photo-gallery-12.jpg'}"}
+                = image_tag "photo-gallery-thumb-12.jpg", alt: "GALLERY"
+      .end-footer.bg2
+        .container
+          .flex-sb-m.flex-w.p-t-22.p-b-22
+            .p-t-5.p-b-5
+              %a.fs-15.c-white{:href => "#"}
+                %i.fa.fa-tripadvisor{"aria-hidden" => "true"}
+              %a.fs-15.c-white{:href => "#"}
+                %i.fa.fa-facebook.m-l-18{"aria-hidden" => "true"}
+              %a.fs-15.c-white{:href => "#"}
+                %i.fa.fa-twitter.m-l-18{"aria-hidden" => "true"}
+            .txt17.p-r-20.p-t-5.p-b-5
+              Copyright © 2018 All rights reserved | This template is made with
+              %i.fa.fa-heart
+              by
+              %a{:href => "https://colorlib.com", :target => "_blank"} Colorlib
+    / Back to top
+    #myBtn.btn-back-to-top.bg0-hov
+      %span.symbol-btn-back-to-top
+        %i.fa.fa-angle-double-up{"aria-hidden" => "true"}
+    / Container Selection1
+    #dropDownSelect1
+    / Modal Video 01
+    #modal-video-01.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog{"data-dismiss" => "modal", :role => "document"}
+        .close-mo-video-01.trans-0-4{"aria-label" => "Close", "data-dismiss" => "modal"} ×
+        .wrap-video-mo-01
+          .w-full.wrap-pic-w.op-0-0
+            = image_tag "icons/video-16-9.jpg", alt: "IMG"
+          .video-mo-01
+            %iframe{:allowfullscreen => "", :src => "https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&showinfo=0"}
+    :javascript
+      $('.parallax100').parallax100();
+    = javascript_include_tag "application"

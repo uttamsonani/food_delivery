@@ -1,0 +1,15 @@
+<h1>Hello <%= @user.first_name %></h1>
+
+<p>
+  <%= @greeting %> <%= @user.full_name %> Your Account has been Updated On PATO PLACE 
+</p>
+
+<p><strong>Date:</strong> <%= Date.today %></p>
+
+<% @user.attributes.except("id", "country", "created_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", 
+      "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at",
+      "unconfirmed_email").each do |key, value| %>
+  <p><strong><%= key.upcase %>:</strong> <%= value %> </p>
+<% end %>
+
+<h3><strong>Thanks To Come Here. Have a Great Day</strong></h3>

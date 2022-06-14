@@ -1,0 +1,27 @@
+<h1>Hello <%= @reservation.name %></h1>
+
+<h3><strong>WEL COME TO PATO PLACE</strong></h3>
+
+<p>
+  <%= @greeting %> <%= @reservation.name %> Your Reservation has been Updated On PATO PLACE 
+</p>
+
+==================================================================
+<h2 class="text-center"> Your Reservation Details</h2>
+<p><strong>Date : </strong> <%= Date.today %></p>
+<p><strong> Name : </strong> <%= @reservation.name %></p>
+<p><strong> Email : </strong> <%= @reservation.email %></p>
+<p><strong> Phone No : </strong> <%= @reservation.phone_no %></p>
+<p><strong> Time : </strong> <%= @reservation.time %></p>
+<p><strong> Dining Table : </strong> <%= @reservation.dining_table_id %></p>
+<p><strong> Special Request : </strong> 
+          <% if @reservation.special_request.blank? %>
+              No Special Request
+          <% else %>  
+            <%= @reservation.special_request %></p>
+          <% end %>
+<p><strong> Update At : </strong> <%= @reservation.updated_at %></p>
+==================================================================
+
+<h4><strong>Note :</strong> If you want to update and delete your reservation, then you can do it within an hour THANK YOU. </h4>
+<h3><strong>Thanks To Come Here. Have a Great Day</strong></h3>
