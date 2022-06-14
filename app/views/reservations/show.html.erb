@@ -1,0 +1,65 @@
+<% content_for :title do %>
+  Your Reservation | Date <%= @reservation.date %>  
+<% end %>
+  <!-- Title Page -->
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url(<%= image_url 'bg-title-page-03.jpg' %>);">
+		<h2 class="tit6 t-center">
+			Your Reservation <br>
+      <%= @reservation.date %>
+		</h2>
+	</section>
+
+	<!-- Reservation -->
+<section class="section-reservation bg1-pattern p-t-100 p-b-113">
+	<div class="container">
+    <p>
+      <strong>Name:</strong>
+      <%= @reservation.name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @reservation.email %>
+    </p>
+
+    <p>
+      <strong>Person:</strong>
+      <%= @reservation.persons %>
+    </p>    
+    
+    <p>
+      <strong>Phone No:</strong>
+      <%= @reservation.phone_no %>
+    </p>    
+    
+    <p>
+      <strong>Time:</strong>
+      <%= @reservation.time %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= @reservation.date %>
+    </p>
+
+    <p>
+      <strong>Table No: </strong>
+      <%= @reservation.dining_table_id %>
+    </p>
+
+    <p>
+      <strong>Special Request: </strong>
+      <% if @reservation.special_request.blank? %>
+        NOTHING ANY REQUEST
+      <% else %>
+        <%= @reservation.special_request %>
+      <% end %>
+    </p><br>
+
+    <div>
+      <%= link_to "Update Reservation", edit_reservation_path(@reservation), class: " btn btn-outline-dark btn-sm" %> |
+      <%= link_to "Back to Reservations", reservations_path, class: "btn btn-outline-dark btn-sm" %> <br><br>
+      <%= button_to "Cancle Reservation", @reservation, method: :delete, class: "btn btn-m btn-outline-danger" %>
+    </div>
+  </div>
+</section>
