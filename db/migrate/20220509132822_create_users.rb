@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.string :country
-      t.integer :zip_code, limit: 6
+      t.integer :zip_code
 
       t.timestamps
     end
