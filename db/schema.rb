@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.0].define(version: 2022_05_09_141455) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -28,12 +25,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
   end
 
   create_table "food_categories", force: :cascade do |t|
-    t.bigint "food_id", null: false
-    t.bigint "category_id", null: false
+    t.integer "foods_id", null: false
+    t.integer "categories_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_food_categories_on_category_id"
-    t.index ["food_id"], name: "index_food_categories_on_food_id"
+    t.index ["categories_id"], name: "index_food_categories_on_categories_id"
+    t.index ["foods_id"], name: "index_food_categories_on_foods_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -41,44 +38,38 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
     t.text "description"
     t.binary "photo"
     t.integer "price"
-    t.boolean "active", default: true
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_foods", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "food_id", null: false
-    t.float "amount"
-    t.integer "quantity"
+    t.integer "orders_id", null: false
+    t.integer "foods_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_order_foods_on_food_id"
-    t.index ["order_id"], name: "index_order_foods_on_order_id"
+    t.float "amount"
+    t.integer "quntatiy"
+    t.index ["foods_id"], name: "index_order_foods_on_foods_id"
+    t.index ["orders_id"], name: "index_order_foods_on_orders_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.float "amount"
-    t.string "statu"
-    t.bigint "user_id"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.integer "persons"
-    t.integer "phone_no"
-    t.time "time"
-    t.date "date"
+    t.datetime "time", precision: nil
     t.string "special_request"
-    t.bigint "user_id"
-    t.bigint "dining_table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dining_table_id"], name: "index_reservations_on_dining_table_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
@@ -93,23 +84,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_032407) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.bigint "zip_code"
+    t.integer "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "food_categories", "categories"
-  add_foreign_key "food_categories", "foods"
-  add_foreign_key "order_foods", "foods"
-  add_foreign_key "order_foods", "orders"
+  add_foreign_key "food_categories", "categories", column: "categories_id"
+  add_foreign_key "food_categories", "foods", column: "foods_id"
+  add_foreign_key "order_foods", "foods", column: "foods_id"
+  add_foreign_key "order_foods", "orders", column: "orders_id"
 end

@@ -5,7 +5,7 @@ class CreateFoods < ActiveRecord::Migration[7.0]
       t.text :description
       t.binary :photo
       t.integer :price
-      t.boolean :active, default: true
+      t.boolean :active
 
       t.timestamps
     end
